@@ -5,6 +5,7 @@ gem 'sprockets' , '2.11.0'
 gem 'sass-rails'
 gem 'geocoder'
 gem 'figaro', '>= 1.0.0'
+gem 'carrierwave'
 
 gem 'will_paginate'
 

@@ -40,6 +40,15 @@ function initMap() {
 
 </div>
 
+
+<h1> Photos </h1>
+
+<% @place.photos.each do |photo| %>
+  <div>
+      <b><%= photo.caption %> </br>
+  </div>
+<% end %>
+
 <div class="clear"></div>
 
 
@@ -93,7 +102,33 @@ function initMap() {
 
 <div class="clear"></div>
 
-<%= simple_form_for @photo, url: place_photos_path(@place) do |x| %>
-  <%= x.input :caption %>
-  <%= x.submit "Add A Photo", class: 'btn btn-primary' %>
-<% end %>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add a Photo
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add A Photo</h4>
+      </div>
+
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |x| %>
+        <div class="modal-body">
+          <%= x.input :picture %>
+          <%= x.input :caption %>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= x.submit "Add A Photo", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
