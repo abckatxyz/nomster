@@ -90,3 +90,10 @@ function initMap() {
     </blockquote>
   </div>
 <% end %>
+
+<div class="clear"></div>
+
+<%= simple_form_for @photo, url: place_photos_path(@place) do |x| %>
+  <%= x.input :caption %>
+  <%= x.submit "Add A Photo", class: 'btn btn-primary' %>
+<% end %>
